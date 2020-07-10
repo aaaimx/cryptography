@@ -1,0 +1,30 @@
+{
+  "name": "cryptography",
+  "version": "1.0.0",
+  "description": "Cryptography docs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "publish": "npm run build && node publish.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/disoftw/cryptography.git"
+  },
+  "author": "Disoft",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/disoftw/cryptography/issues"
+  },
+  "homepage": "https://github.com/disoftw/cryptography#readme",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.5.2",
+    "@vuepress/plugin-medium-zoom": "^1.5.2",
+    "gh-pages": "^3.1.0",
+    "vuepress": "^1.5.2"
+  },
+  "dependencies": {
+    "vuepress-theme-antdocs": "^1.1.1"
+  }
+}
