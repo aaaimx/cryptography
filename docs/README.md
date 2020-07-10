@@ -16,7 +16,7 @@ La criptografía se trata de construir y analizar protocolos que eviten que terc
 - Conocer los distintos tipos de Criptografía que existen.
 - Entender el funcionamiento de cada método de Criptografía.
 
-# Recursos del Curso
+# Material del Curso
 
 - 
 

@@ -15,7 +15,6 @@ module.exports = {
    * AntDocs theme for AntDesign for vue
    * Ref: https://antdocs.seeyoz.cn/guide/getting-started.html#引用主题
    */
-  theme: 'antdocs',
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -39,22 +38,36 @@ module.exports = {
   themeConfig: {
     repo: 'https://github.com/alvarez98',
     editLinks: false,
-    logo: 'https://i.pinimg.com/originals/5b/43/9b/5b439bc79954e86a96cbf7bb55170e97.png',
+    logo: 'https://www.aaaimx.org/software/logo.png',
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
     nav: [
       {
-        text: 'Intro',
+        text: 'Introducción',
         link: '/intro/'
+      },
+      {
+        text: 'Tipos de Cifrado',
+        link: '/types/'
       }
     ],
     sidebar: {
       '/intro/': [
         {
-          title: 'Intro',
+          title: 'Introducción',
           collapsable: false,
-          children: ['', '2-npm', '3-config', '4-modules']
+        }
+      ],
+      '/types/': [
+        {
+          title: 'Tipos de Cifrado',
+          collapsable: false,
+          children: [
+            'caesar-cipher',
+            'vigenere-cipher',
+            'hashing'
+          ]
         }
       ]
     }
