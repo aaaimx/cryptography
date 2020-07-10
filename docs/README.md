@@ -13,10 +13,10 @@ La criptografía se trata de construir y analizar protocolos que eviten que terc
 # Objetivos de aprendizaje
 
 - Aprender las bases de la Criptografía.
-- Conocer los distintos tipos de criptografía que existen.
-- Entender el funcionamiento de cada método de criptografía.
+- Conocer los distintos tipos de Criptografía que existen.
+- Entender el funcionamiento de cada método de Criptografía.
 
-# Recursos del Taller
+# Recursos del Curso
 
 - 
 
@@ -28,7 +28,7 @@ La criptografía se trata de construir y analizar protocolos que eviten que terc
 
 A los miembros de la división que contribuyeron a la traducción de este material al español.
 
-- 
+- **Adolfo Alvarez** - [@alvarez98](https://github.com/alvarez98)
 
 ## Acerca de este material
 
