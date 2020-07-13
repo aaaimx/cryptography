@@ -23,3 +23,7 @@ Texto sin formato: _"abcdefghijklmnopqrstuvwxyz"_
 Texto cifrado: _"bcdefghijklmnopqrstuvwxyza"_
 :::
 
+::: warning Nota
+
+Si se usa una clave diferente, el alfabeto de cifrado se desplazará una cantidad diferente.
+:::

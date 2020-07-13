@@ -12,7 +12,7 @@ Encriptemos la palabra "sololearn" con la clave "web".
 
 **Mensaje cifrado:** _osmwpfwvo_
 
-La explicación sigue:
+La explicación a continuación:
 ```
 w e b w e b w e b
 s o l o l e a r n
@@ -28,6 +28,7 @@ e + r = v
 b + n = o
 ```
 
-::: tip Nota
-El valor de _a_ es 0
+::: warning Nota
+
+No se utilizan caracteres especiales en este tipo de cifrado.
 :::

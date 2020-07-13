@@ -1,13 +1,15 @@
-# Tipos de cifrado
+# Encryption Types
 
-Un método de cifrado se compone fundamentalmente de dos elementos, un _algoritmo criptográfico_ y una o más _claves secretas_. Mientras que el algoritmo describe el método de encriptado (p. ej., "desplaza cada letra a lo largo de la secuencia del alfabeto"), la clave proporciona el parámetro ("C = tres posiciones"). Esto es lo que permite definir al cifrado como un procedimiento por el cual se entrega un texto en claro y una clave al algoritmo criptográfico y se obtiene un texto cifrado.
+## Encriptación simétrica
+Los algoritmos de clave simétrica son algoritmos para criptografía que usan las mismas claves criptográficas para el cifrado de texto plano y descifrado de texto cifrado. Se requiere que ambas partes tengan acceso a la clave secreta, por lo que este es uno de los principales inconvenientes del cifrado de clave simétrica.
 
-La elección de un método de cifrado siempre es una decisión importante y deben analizarse los diferentes métodos antes de tomarla. El estándar PCI mantiene una lista de métodos recomendados que va actualizándose a medida que se desarrollan nuevos.
+## Encriptación asimétrica
+La criptografía asimétrica (o criptografía de clave pública) es cualquier sistema criptográfico que utiliza pares de claves: claves públicas que pueden difundirse ampliamente, y claves privadas que solo conoce el propietario.
 
-Entre los conocidos están:
+Esto cumple dos funciones: autenticación, donde la clave pública verifica que un titular de la clave privada emparejada envió el mensaje, y cifrado, donde solo el titular de la clave privada emparejada puede descifrar el mensaje cifrado con la clave pública.
 
-- Caesar Cipher
-- Vigenère Cipher
-- Hashing
+::: warning Nota
+Las funciones hash también se usan en muchos sistemas criptográficos.
+:::
 
-<center><img src="https://download.seaicons.com/download/i85633/graphicloads/100-flat/graphicloads-100-flat-unlock.ico" width="200"></center>
+<img src="https://lh3.googleusercontent.com/proxy/p31ba3r61QVspw2jxDr3MKPm6qOcbjJWo3yjkTByh_bE1Gqpn7LYmW0Rpy41WJJ69emBbn1mcEVZxhEM7_scwiOuLdbNUtCAL222uz22nMk7eCOc6goYxlmpByc9" width="300" align="right">

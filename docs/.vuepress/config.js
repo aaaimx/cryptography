@@ -40,12 +40,18 @@ module.exports = {
     editLinks: false,
     logo: 'https://www.aaaimx.org/software/logo.png',
     docsDir: '',
+    nextLinks: true,
+    prevLinks: true,
     editLinkText: '',
     lastUpdated: false,
     nav: [
       {
         text: 'Introducción',
         link: '/intro/'
+      },
+      {
+        text: 'Métodos de Cifrado',
+        link: '/methods/'
       },
       {
         text: 'Tipos de Cifrado',
@@ -59,20 +65,49 @@ module.exports = {
           collapsable: false,
         }
       ],
+      '/methods/': [
+        {
+          title: 'Métodos de Cifrado',
+          collapsable: false,
+          children: [
+            'caesar-cipher',
+            'vigenere-cipher',
+            'hashing',
+            'hashed-passwords',
+            'salted-passwords'
+          ]
+        }
+      ],
       '/types/': [
         {
           title: 'Tipos de Cifrado',
           collapsable: false,
           children: [
-            'caesar-cipher',
-            'vigenere-cipher',
-            'hashing'
+            'symmetric',
+            'aes',
+            'asymmetric',
+            'diffie-hellman',
+            'rsa',
+            'digital-signature'
           ]
         }
-      ]
+      ],
+    },
+    locales: {
+      // The key is the path for the locale to be nested under.
+      // As a special case, the default locale can use '/' as its path.
+      '/': {
+        lang: 'es-MX', // this will be set as the lang attribute on <html>
+        title: 'VuePress',
+        description: 'Vue'
+      },
+      '/en/': {
+        lang: 'en-US',
+        title: 'VuePress',
+        description: 'Vue'
+      }
     }
   },
-
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
