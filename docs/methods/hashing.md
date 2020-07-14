@@ -15,7 +15,7 @@ hex_dig = hash_object.hexdigest()
 print(hex_dig)
 ```
 ::: tip Ejemplo
-Obtener una cadena larga que es hash por el algoritmo SHA-1 parecida a esta
+El codigo anterior imprime una cadena larga que es un hash por el algoritmo SHA-1 parecida a esta:
 _0a4d55a8d778e5022fab701977c5d840bbc486d0_
 :::
 

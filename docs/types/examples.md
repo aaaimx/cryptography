@@ -2,7 +2,7 @@
 
 ## JSON Web Token (JWT)
 
-### ¿Qué es el token web JSON?
+### ¿Qué es JSON Web Token?
 
 JSON Web Token (JWT) es un estándar abierto (RFC 7519) que define una forma compacta y autónoma para transmitir información de forma segura entre las partes como un objeto JSON. Esta información puede ser verificada y confiable porque está firmada digitalmente. Los JWT se pueden firmar usando una clave secreta (con el algoritmo HMAC) o un par de claves pública / privada usando RSA o ECDSA.
 
@@ -105,3 +105,114 @@ A continuación se muestra un JWT que tiene el encabezado y la carga útil anter
 <center>
     <img src="https://cdn.auth0.com/content/jwt/encoded-jwt3.png" width="500">
 </center>
+
+## Protocolo de intercambio de claves Diffie-Hellman
+
+El intercambio de claves Diffie-Hellman (DH) fue el primer algoritmo de clave pública inventado (1976). Obtiene su seguridad de la dificultad de calcular logaritmos discretos en un campo finito, en comparación con la facilidad de calcular la exponenciación en el mismo campo.
+
+Diffie-Hellman se puede usar para la distribución de claves. Alice y Bob pueden usar este algoritmo para generar una clave secreta, pero no se puede usar para cifrar y descifrar mensajes. Por eso se le conoce como el "Protocolo de intercambio de claves Diffie-Hellman".
+
+El objetivo es que Alice y Bob tengan una clave secreta mutua sin usar un canal seguro o una reunión segura (tenga en cuenta que no pueden verse cara a cara).
+
+Primero, Alice y Bob están de acuerdo en un número primo grande, n y g, de modo que g es un modo primitivo n (en aritmética modular, un número g es un módulo raíz primitivo n si cada número un número primo de n es congruente con una potencia de g módulo n). Estos dos enteros no tienen que ser secretos; Alice y Bob pueden aceptarlos a través de algún canal inseguro. Incluso pueden ser comunes entre un grupo de usuarios. No importa. Luego, el protocolo es el siguiente:
+
+1. Alice elige un entero grande aleatorio x y lo envía a Bob X que se calcula de la siguiente manera:
+
+```
+X = g ^ x (mod n)
+```
+
+2. Bob elige un entero grande aleatorio y y lo envía a Alice Y que se calcula de la siguiente manera:
+
+```
+Y = g ^ y (mod n)
+```
+
+3. Alice calcula k de la siguiente manera:
+
+```
+k = Y * x (mod n)
+```
+
+4. Bob calcula k´ de la siguiente manera:
+
+```
+k´ = X * y (mod n)
+```
+
+Tanto k como k´ son iguales a g^(x * y) mod n. Nadie que esté escuchando en el canal puede calcular ese valor; solo saben n, g, X e Y. A menos que puedan calcular el logaritmo discreto y recuperar x o y, no pueden resolver el problema. Entonces, k es la clave secreta que tanto Alice como Bob calcularon de forma independiente y hemos alcanzado el objetivo.
+
+::: warning Nota
+
+La elección de g y n puede tener un impacto sustancial en la seguridad de este sistema. Se basa en la dificultad de factorizar números del mismo tamaño que n.
+:::
+
+## RSA (criptosistema)
+
+RSA es uno de los primeros criptosistemas de clave pública (asimétrica) y se usa ampliamente para la transmisión segura de datos. RSA significa Rivest-Shamir-Adleman, letras iniciales de los apellidos de sus creadores. Esta asimetría se basa en la dificultad práctica de la factorización del producto de dos números primos grandes, el "problema de factorización".
+
+Así es como funciona la generación de claves:
+
+1. Elija dos números primos distintos, p y q.
+2. Calcule n = p * q. n se utiliza como módulo para las claves públicas y privadas. Su longitud, generalmente expresada en bits, es la longitud de la clave.
+3. Calcule λ (n) = least_common_multiple (p - 1, q - 1). Este valor es privado.
+4. Elija un número entero e tal que 1 <e <λ (n), e y λ (n) sean números coprimos.
+5. Determine d a partir de d * e ≡ 1 (mod λ (n)).
+
+_e_ se publica como el exponente de clave pública.
+
+_d_ se mantiene como el exponente de clave privada.
+
+**Par de claves**
+- clave pública: (e, n)
+- clave privada: (d, n)
+
+Actualmente, los tamaños estándar para las claves RSA son los siguientes:
+- 512 bits - Clave de baja resistencia
+- 1024 bits - Clave de resistencia media
+- 2048 bits - Clave de alta resistencia
+- 4096 bits - Clave de muy alta resistencia
+
+Supongamos que Bob quiere enviar información a Alice. Si deciden usar RSA, Bob debe conocer la clave pública de Alice para cifrar el mensaje y Alice debe usar su clave privada para descifrar el mensaje. Para permitir que Bob envíe sus mensajes cifrados, Alice transmite su clave pública (n, e) a Bob a través de un canal confiable (no necesariamente secreto). La clave privada de Alice (d) nunca se distribuye.
+
+Intentemos generar un par de claves muy simple:
+
+```
+1. p = 61 y q = 53
+2. n = 61 * 53 = 3233
+3. λ (n) = mcm (p-1, q-1) = mcm (60, 52) = 780
+4. e = 17 (1 <e <λ (n), e y λ (n) son números coprimos)
+5. d = 413 (d * e mod λ (n) = 1)
+```
+
+clave pública: (n = 3233, e = 17)
+
+clave privada: (n = 3233, d = 413)
+
+Generamos el par de claves. Necesitamos la clave pública (n, e) para cifrar el texto sin formato. Asignemos texto plano a m y el texto cifrado a c; entonces el texto cifrado será:
+
+```
+c = m ^ e mod n
+```
+
+Por ejemplo, si nuestro texto simple m = 65, entonces:
+
+```
+c (m) = 65 ^ 17 mod 3233 = 2790
+```
+
+Para descifrar el texto cifrado con la clave privada (n, d), debemos usar esto:
+
+```
+m (c) = c ^ d mod n = 2790 ^ 413 mod 3233 = 65
+```
+
+::: warning Ejercicio
+
+Intente escribir un programa (en cualquier idioma) para generar un par de claves simple, cifrar el texto sin formato y descifrar.
+:::
+
+::: warning Nota
+
+Tanto RSA como el Protocolo de intercambio de claves Diffie-Hellman, son de tipo asimétrico.
+:::
