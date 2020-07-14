@@ -88,7 +88,8 @@ module.exports = {
             'asymmetric',
             'diffie-hellman',
             'rsa',
-            'digital-signature'
+            'digital-signature',
+            'examples'
           ]
         }
       ],

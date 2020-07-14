@@ -1,6 +1,10 @@
 # What is Cryptography?
 
-Cryptography is about constructing and analyzing protocols that prevent third parties or the public from reading private messages. Various aspects of information security such as data confidentiality, data integrity, authentication, and non-repudiation are central to modern cryptography.
+<center>
+    <img src="https://switchtech.com/wp-content/uploads/2018/02/BRUTE-FORCE-01-1-600x600.png" width="400">
+</center>
+
+**Cryptography** is about constructing and analyzing protocols that prevent third parties or the public from reading private messages. Various aspects of information security such as data confidentiality, data integrity, authentication, and non-repudiation are central to modern cryptography.
 
 Prior to the modern age, cryptography was effectively synonymous with encryption, the conversion of information from a readable state to apparent nonsense. 
 
