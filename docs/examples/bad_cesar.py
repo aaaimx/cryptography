@@ -25,8 +25,7 @@ class BadCesar():
                 # obtenemos el indice/position
                 symbolIndex = self.SYMBOLS.find(symbol)
                 symbolIndex += self.__key
-                if symbolIndex >= len(self.SYMBOLS):
-                    symbolIndex -= len(self.SYMBOLS)
+                symbolIndex = symbolIndex % len(self.SYMBOLS)
                 translated += self.SYMBOLS[symbolIndex]
             else:
                 translated += symbol
@@ -40,8 +39,7 @@ class BadCesar():
                 # obtenemos el indice/position
                 symbolIndex = self.SYMBOLS.find(symbol)
                 symbolIndex -= self.__key
-                if symbolIndex < 0:
-                    symbolIndex += len(self.SYMBOLS)
+                symbolIndex = symbolIndex % len(self.SYMBOLS)
                 translated += self.SYMBOLS[symbolIndex]
             else:
                 translated += symbol
